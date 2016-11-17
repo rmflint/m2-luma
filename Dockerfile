@@ -2,7 +2,7 @@ FROM alankent/m2-apache
 MAINTAINER Alan Kent <alan.james.kent@gmail.com>
 
 
-########### Magento Setup ########### 
+########### Magento Setup ###########
 
 ENV MAGENTO_USER magento
 ENV MAGENTO_GROUP magento
@@ -45,3 +45,9 @@ RUN cd /magento2 \
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+
+
+# Add mount volume points, but often not used.
+VOLUME /magento2/app/code
+VOLUME /magento2/app/design
+VOLUME /magento2/app/i18n
